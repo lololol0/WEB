@@ -14,7 +14,18 @@
     width: 30px;
     height: 30px;
 }
-.menu .active {background-color: #b45ec8;}
+
+/*Добавить на одну из кнопок эффект пульсации*/
+@keyframes glowing {
+    0% { background-color: #ba94c6; box-shadow: 0 0 2px #ba94c6; }
+    50% { background-color: #cb6ae0; box-shadow: 0 0 9px #cb6ae0; }
+    100% { background-color: #b45ec8; box-shadow: 0 0 2px #b45ec8; }
+}
+.menu .active {
+    background-color: #b45ec8;
+    animation: glowing 1500ms infinite;
+}
+@keyframes move_eye { from { margin-left:-20%; } to { margin-left:100%; }  }
 
 .menu {
     background-color: #ababab;
@@ -46,7 +57,6 @@
 }
 .fa-times {
     position: relative;
-    /* Adjust these values accordingly */
     bottom: 3px;
     right: 3px;
 }
@@ -69,6 +79,8 @@
     background: #f0f0f0;
     border-radius: 5px;
     padding: 20px;
+    /*Добавить изменение фонового цвета кнопок на странице с продолжительностью анимации 0.5*/
+    transition-duration: .5s;
 }
 img {
     height: 400px;
@@ -115,4 +127,27 @@ img {
 .end-page a {
     text-decoration: none;
     color: white;
+}
+
+.button {
+    transition-duration: 10s;
+}
+
+/*Придумать 1 анимацию выполненную через transition или animation для своего сайта и внедрить её*/
+@keyframes pulsing {
+    0% {
+        -webkit-transform: scale(0.5, 0.5);
+        transform: scale(0.5, 0.5)
+    }
+    50% {
+        -webkit-transform: scale(1.0, 1.0);
+        transform: scale(1.0, 1.0);
+    }
+    100% {
+        -webkit-transform: scale(0.5, 0.5);
+        transform: scale(0.5, 0.5);
+    }
+}
+.btn-sing {
+    animation: pulsing 2s infinite;
 }
